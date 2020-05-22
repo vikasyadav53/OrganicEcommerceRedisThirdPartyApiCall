@@ -1,9 +1,13 @@
 package com.vikas.projects.organicecommerce.redisapicall.models;
 
+import java.io.Serializable;
 
-
-public class Measure {
+public class Measure implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6139417401889578181L;
 	private String uri;
 	 private String label;
 

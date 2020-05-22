@@ -1,6 +1,12 @@
 package com.vikas.projects.organicecommerce.redisapicall.models;
 
-public class Next {
+import java.io.Serializable;
+
+public class Next implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3162650203043153567L;
 	private String title;
 	private String href;
 

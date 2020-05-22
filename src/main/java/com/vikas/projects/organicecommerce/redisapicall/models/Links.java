@@ -1,7 +1,10 @@
 package com.vikas.projects.organicecommerce.redisapicall.models;
 
-public class Links {
-	 Next next;
+import java.io.Serializable;
+
+public class Links implements Serializable{
+	private static final long serialVersionUID = 3400297895916802765L;
+	Next next;
 
 
 	 // Getter Methods 

@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericToStringSerializer;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -24,13 +24,17 @@ public class OrganicEcommerceRedisThirdPartyApiCallApplication {
 	public RedisTemplate<String, Object> redisTemplate() {
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());
-		redisTemplate.setDefaultSerializer(new GenericToStringSerializer<Object>(Object.class));
 		return redisTemplate;
 	}
 
 	@Bean
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
+	}
+	
+	@Bean
+	public JdkSerializationRedisSerializer getRedisSerializer() {
+		return new JdkSerializationRedisSerializer();
 	}
 
 }
